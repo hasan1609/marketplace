@@ -4,6 +4,7 @@ import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/helper/keyboard.dart';
 import 'package:marketplace/screen/home/home.dart';
+import 'package:marketplace/screen/lupa_password/forgot.dart';
 import 'package:marketplace/screen/otp/otp.dart';
 import 'package:marketplace/size_config.dart';
 
@@ -48,7 +49,9 @@ class _LoginFormState extends State<LoginForm> {
               GestureDetector(
                 // onTap: () => Navigator.pushNamed(
                 //     context, ForgotPasswordScreen.routeName),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, Forgot.routeName);
+                },
                 child: Text(
                   "Lupa Password?",
                   style: TextStyle(

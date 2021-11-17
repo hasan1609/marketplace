@@ -16,13 +16,16 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.05),
               Text(
-                "OTP Verification",
-                style: headingStyle,
+                "Masukkan Kode Verifikasi",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: getPropertionateScreenWidth(20)),
               ),
-              Text("Kode akan dikirim kepada No 0810000000"),
+              Text("Kode telah dikirim melalui SMS ke 0810000000"),
               buildTimer(),
               OtpForm(),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
+              SizedBox(height: getPropertionateScreenHeight(20)),
               GestureDetector(
                 onTap: () {
                   // OTP code resend
@@ -34,7 +37,7 @@ class Body extends StatelessWidget {
                     color: primaryColor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
