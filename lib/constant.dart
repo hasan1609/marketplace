@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/size_config.dart';
 
 const primaryColor = Color(0xFFFF7643);
 const primaryLightColor = Color(0xFFFFECDF);
@@ -10,6 +11,27 @@ const primaryGradientColor = LinearGradient(
 const secondaryColor = Color(0xFF979797);
 const textColor = Color(0xFF757575);
 const animationDuration = Duration(milliseconds: 200);
+
+final headingStyle = TextStyle(
+  fontSize: getPropertionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
+final otpInputDecoration = InputDecoration(
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getPropertionateScreenWidth(15)),
+  border: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  enabledBorder: outlineInputBorder(),
+);
+
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(getPropertionateScreenWidth(15)),
+    borderSide: BorderSide(color: textColor),
+  );
+}
 
 // form error
 final RegExp emailValidatorRegExp =

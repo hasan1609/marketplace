@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/screen/home/home.dart';
+import 'package:marketplace/screen/otp/otp.dart';
 import 'package:marketplace/size_config.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -49,7 +49,7 @@ class _RegisterFormState extends State<RegisterForm> {
               //   KeyboardUtil.hideKeyboard(context);
               //   Navigator.pushNamed(context, Home.routeName);
               // }
-              Navigator.pushNamed(context, Home.routeName);
+              Navigator.pushNamed(context, OtpScreen.routeName);
             },
           ),
         ],

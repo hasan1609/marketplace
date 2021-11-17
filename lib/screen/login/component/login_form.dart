@@ -4,6 +4,7 @@ import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/helper/keyboard.dart';
 import 'package:marketplace/screen/home/home.dart';
+import 'package:marketplace/screen/otp/otp.dart';
 import 'package:marketplace/size_config.dart';
 
 class LoginForm extends StatefulWidget {
@@ -69,7 +70,7 @@ class _LoginFormState extends State<LoginForm> {
               //   KeyboardUtil.hideKeyboard(context);
               //   Navigator.pushNamed(context, Home.routeName);
               // }
-              Navigator.pushNamed(context, Home.routeName);
+              Navigator.pushNamed(context, OtpScreen.routeName);
             },
           ),
         ],
