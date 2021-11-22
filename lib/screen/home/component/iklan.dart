@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/size_config.dart';
 
-class iklan extends StatelessWidget {
-  const iklan({
+class Iklan extends StatelessWidget {
+  const Iklan({
     Key? key,
   }) : super(key: key);
 

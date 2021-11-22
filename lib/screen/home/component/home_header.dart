@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/screen/cart/cartscreen.dart';
 import 'package:marketplace/screen/home/component/icon_bar.dart';
 import 'package:marketplace/screen/home/component/search_bar.dart';
 import 'package:marketplace/size_config.dart';
@@ -18,9 +19,9 @@ class homeHeader extends StatelessWidget {
         children: [
           SearchBar(),
           notifBarHome(
-            svgSrc: "assets/icons/Mail.svg",
+            svgSrc: "assets/icons/Cart Icon.svg",
             numOfItem: 3,
-            press: () {},
+            press: () => Navigator.pushNamed(context, Cart.routeName),
           ),
           notifBarHome(
             svgSrc: "assets/icons/Bell.svg",

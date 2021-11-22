@@ -59,7 +59,7 @@ class kategoriCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
                 decoration: BoxDecoration(
-                  color: Color(0xffffecdf),
+                  color: Color(0xFFDFF5FF),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: SvgPicture.asset(icon),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/screen/introduction/component/content.dart';
 import 'package:marketplace/screen/login/login.dart';
 import 'package:marketplace/size_config.dart';

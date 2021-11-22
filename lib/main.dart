@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/route.dart';
-import 'package:marketplace/screen/introduction/intro.dart';
+import 'package:marketplace/screen/splash/splashscreen.dart';
 import 'package:marketplace/theme.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: theme(),
       // home: SplashScreen(),
-      initialRoute: Introduction.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }
