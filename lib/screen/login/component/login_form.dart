@@ -73,7 +73,7 @@ class _LoginFormState extends State<LoginForm> {
               //   KeyboardUtil.hideKeyboard(context);
               //   Navigator.pushNamed(context, Home.routeName);
               // }
-              Navigator.pushNamed(context, OtpScreen.routeName);
+              Navigator.pushNamed(context, Home.routeName);
             },
           ),
         ],

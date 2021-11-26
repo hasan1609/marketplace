@@ -46,7 +46,8 @@ class Body extends StatelessWidget {
                 SwitchTextAkun(
                   text1: "Sudah punya akun?",
                   text2: "Masuk",
-                  press: () => Navigator.pushNamed(context, Login.routeName),
+                  press: () =>
+                      Navigator.pushReplacementNamed(context, Login.routeName),
                 ),
                 SizedBox(height: getPropertionateScreenWidth(20)),
               ],

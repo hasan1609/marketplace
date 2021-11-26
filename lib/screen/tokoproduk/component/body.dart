@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/component/produkseller.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/screen/tokoproduk/component/search.dart';
 import 'package:marketplace/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -9,26 +11,29 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(20)),
         child: Column(
           children: [
+            SizedBox(
+              height: getPropertionateScreenWidth(8),
+            ),
+            search(),
+            SizedBox(
+              height: getPropertionateScreenWidth(20),
+            ),
             ...List.generate(
               demoProduk.length,
               (index) {
-                if (demoProduk[index].populer)
-                  return produkSeller(
-                    produk: demoProduk[index],
-                    press: () {},
-                  );
-                return SizedBox.shrink();
+                return produkSeller(
+                  produk: demoProduk[index],
+                  press: () {},
+                );
               },
             ),
-            SizedBox(
-              height: getPropertionateScreenWidth(20),
-            )
           ],
         ),
       ),

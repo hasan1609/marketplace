@@ -57,7 +57,7 @@ class Penjualan extends StatelessWidget {
                       height: getPropertionateScreenWidth(10),
                     ),
                     Text(
-                      "Pesanan bary",
+                      "Pesanan baru",
                       style: TextStyle(
                           fontSize: getPropertionateScreenWidth(12),
                           fontWeight: FontWeight.bold),

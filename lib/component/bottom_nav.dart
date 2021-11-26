@@ -44,7 +44,8 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? primaryColor
                     : inActiveIconColor,
               ),
-              onPressed: () => Navigator.pushNamed(context, Home.routeName),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, Home.routeName),
             ),
             IconButton(
               icon: SvgPicture.asset(
@@ -71,7 +72,8 @@ class CustomBottomNavBar extends StatelessWidget {
                     ? primaryColor
                     : inActiveIconColor,
               ),
-              onPressed: () => Navigator.pushNamed(context, Profile.routeName),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, Profile.routeName),
               // onPressed: () =>
               //     Navigator.pushNamed(context, ProfileScreen.routeName),
             ),

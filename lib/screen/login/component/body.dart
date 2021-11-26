@@ -46,7 +46,8 @@ class Body extends StatelessWidget {
                 SwitchTextAkun(
                   text1: "Belum Punya Akun?",
                   text2: "Daftar",
-                  press: () => Navigator.pushNamed(context, Register.routeName),
+                  press: () => Navigator.pushReplacementNamed(
+                      context, Register.routeName),
                 ),
                 SizedBox(height: getPropertionateScreenWidth(20)),
               ],

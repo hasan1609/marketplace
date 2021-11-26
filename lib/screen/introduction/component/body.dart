@@ -57,7 +57,8 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Next",
                       press: () {
-                        Navigator.pushNamed(context, Login.routeName);
+                        Navigator.pushReplacementNamed(
+                            context, Login.routeName);
                       },
                     ),
                     Spacer(),

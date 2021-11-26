@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/screen/addproduk/addproduk.dart';
 import 'package:marketplace/screen/cart/cartscreen.dart';
 import 'package:marketplace/screen/detail/detail.dart';
 import 'package:marketplace/screen/home/home.dart';
@@ -23,4 +24,5 @@ final Map<String, WidgetBuilder> routes = {
   Cart.routeName: (context) => Cart(),
   Profile.routeName: (context) => Profile(),
   tokoProduk.routeName: (context) => tokoProduk(),
+  addProduk.routeName: (context) => addProduk(),
 };

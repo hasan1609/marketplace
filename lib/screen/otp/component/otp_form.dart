@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/default_button.dart';
-import 'package:marketplace/constant.dart';
 import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/size_config.dart';
 
@@ -108,7 +107,9 @@ class _OtpFormState extends State<OtpForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
             text: "Lanjut",
-            press: () => Navigator.pushNamed(context, Home.routeName),
+            press: () {
+              Navigator.pushReplacementNamed(context, Home.routeName);
+            },
           )
         ],
       ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Produk {
-  final int id;
+  final int id, stok;
   final String judul, deskripsi;
   final List<String> gambar;
   final List<Color> warna;
-  final double rating, harga, stok;
-  final bool favorit, populer;
+  final double rating, harga;
+  final bool favorit, populer, status;
 
   Produk({
     required this.stok,
@@ -19,6 +19,7 @@ class Produk {
     this.favorit = false,
     required this.gambar,
     this.populer = false,
+    this.status = false,
   });
 }
 
@@ -57,30 +58,32 @@ List<Produk> demoProduk = [
       Colors.white,
     ],
     judul: "Nike Sport White - Man Pant",
-    harga: 50.5,
+    harga: 100.5,
     deskripsi: description,
     rating: 4.1,
     populer: true,
     stok: 2,
   ),
   Produk(
-      id: 3,
-      gambar: [
-        "assets/images/glap.png",
-      ],
-      warna: [
-        Color(0xFFF6625E),
-        Color(0xFF836DB8),
-        Color(0xFFDECB9C),
-        Colors.white,
-      ],
-      judul: "Gloves XC Omega - Polygon",
-      harga: 36.55,
-      deskripsi: description,
-      rating: 4.1,
-      favorit: true,
-      populer: true,
-      stok: 4),
+    id: 3,
+    gambar: [
+      "assets/images/glap.png",
+    ],
+    warna: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    judul: "Gloves XC Omega - jchdchkdchnj hdgfh hedgfh hjgfjdr fhjgjd ",
+    harga: 36.55,
+    deskripsi: description,
+    rating: 4.1,
+    favorit: true,
+    populer: true,
+    status: true,
+    stok: 4,
+  ),
   Produk(
     id: 4,
     gambar: [
@@ -97,6 +100,7 @@ List<Produk> demoProduk = [
     deskripsi: description,
     rating: 4.1,
     favorit: true,
+    status: true,
     stok: 3,
   ),
 ];

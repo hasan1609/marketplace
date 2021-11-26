@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   splashStart() async {
     var duration = Duration(seconds: 10);
     return Timer(duration, () {
-      Navigator.pushNamed(context, Introduction.routeName);
+      Navigator.pushReplacementNamed(context, Introduction.routeName);
     });
   }
 
