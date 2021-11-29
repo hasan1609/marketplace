@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marketplace/screen/cart/cartscreen.dart';
 import 'package:marketplace/screen/home/component/icon_bar.dart';
 import 'package:marketplace/screen/home/component/search_bar.dart';
+import 'package:marketplace/screen/notifikasi/notifikasi.dart';
 import 'package:marketplace/size_config.dart';
 
 class homeHeader extends StatelessWidget {
@@ -26,7 +27,7 @@ class homeHeader extends StatelessWidget {
           notifBarHome(
             svgSrc: "assets/icons/Bell.svg",
             numOfItem: 3,
-            press: () {},
+            press: () => Navigator.pushNamed(context, Notifikasi.routeName),
           ),
         ],
       ),

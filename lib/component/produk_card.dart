@@ -19,10 +19,26 @@ class produkCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: getPropertionateScreenWidth(20)),
-      child: GestureDetector(
-        onTap: press,
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        width: getPropertionateScreenWidth(160),
+        height: getPropertionateScreenWidth(220),
+        padding:
+            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(5)),
+        margin:
+            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(3)),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 5,
+              offset: Offset(2, 0),
+              color: accentColor3.withOpacity(0.3),
+            ),
+          ],
+        ),
         child: SizedBox(
           width: getPropertionateScreenWidth(width),
           child: Column(
@@ -34,7 +50,6 @@ class produkCard extends StatelessWidget {
                   padding: EdgeInsets.all(getPropertionateScreenWidth(20)),
                   decoration: BoxDecoration(
                     color: secondaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(15),
                   ),
                   child: Image.asset(produk.gambar[0]),
                 ),

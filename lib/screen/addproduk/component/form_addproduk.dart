@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:marketplace/component/default_button.dart';
-import 'package:marketplace/screen/addproduk/component/labeltext.dart';
+import 'package:marketplace/component/labeltext.dart';
 import 'package:marketplace/screen/tokoproduk/tokoproduk.dart';
 import 'package:marketplace/size_config.dart';
 import 'package:multi_image_picker2/multi_image_picker2.dart';

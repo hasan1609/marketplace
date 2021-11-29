@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/screen/selengkapnya/selengkapnya.dart';
 import 'package:marketplace/size_config.dart';
 
 class deskripsiProduk extends StatelessWidget {
@@ -77,11 +78,14 @@ class deskripsiProduk extends StatelessWidget {
             vertical: 10,
           ),
           child: GestureDetector(
-            onTap: pressSeeMore,
+            onTap: () => Navigator.pushNamed(
+              context,
+              selengkapnya.routeName,
+            ),
             child: Row(
               children: [
                 Text(
-                  "Lebih banyak......",
+                  "Selengkapnya......",
                   style: TextStyle(
                       color: primaryColor, fontWeight: FontWeight.w600),
                 )

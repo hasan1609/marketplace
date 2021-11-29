@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/constant.dart';
 import 'package:marketplace/size_config.dart';
 
 class sectionBar extends StatelessWidget {
@@ -29,7 +30,7 @@ class sectionBar extends StatelessWidget {
             onTap: press,
             child: Text(
               "Lebih Banyak >",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: primaryColor),
             ),
           )
         ],
