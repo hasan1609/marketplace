@@ -5,7 +5,6 @@ import 'package:marketplace/constant.dart';
 import 'package:marketplace/helper/keyboard.dart';
 import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/screen/lupa_password/forgot.dart';
-import 'package:marketplace/screen/otp/otp.dart';
 import 'package:marketplace/size_config.dart';
 
 class LoginForm extends StatefulWidget {
@@ -39,10 +38,11 @@ class _LoginFormState extends State<LoginForm> {
       // key: _formKey,
       child: Column(
         children: [
-          buildPhoneFormField(),
-          // SizedBox(height: getPropertionateScreenHeight(30)),
-          // buildPasswordFormField(),
+          buildEmailFormField(),
           SizedBox(height: getPropertionateScreenHeight(20)),
+          buildPasswordFormField(),
+          SizedBox(height: getPropertionateScreenHeight(20)),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -81,40 +81,43 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 
-  // TextFormField buildPasswordFormField() {
-  //   return TextFormField(
-  //     obscureText: true,
-  //     onSaved: (newValue) => password = newValue,
-  //     onChanged: (value) {
-  //       if (value.isNotEmpty) {
-  //         removeError(error: kPassNullError);
-  //       } else if (value.length >= 8) {
-  //         removeError(error: kShortPassError);
-  //       }
-  //       return null;
-  //     },
-  //     validator: (value) {
-  //       if (value!.isEmpty) {
-  //         addError(error: kPassNullError);
-  //         return "";
-  //       } else if (value.length < 8) {
-  //         addError(error: kShortPassError);
-  //         return "";
-  //       }
-  //       return null;
-  //     },
-  //     decoration: InputDecoration(
-  //       labelText: "Password",
-  //       hintText: "Enter your password",
-  //       // If  you are using latest version of flutter then lable text and hint text shown like this
-  //       // if you r using flutter less then 1.20.* then maybe this is not working properly
-  //       floatingLabelBehavior: FloatingLabelBehavior.always,
-  //       suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-  //     ),
-  //   );
-  // }
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+      //     obscureText: true,
+      //     onSaved: (newValue) => password = newValue,
+      //     onChanged: (value) {
+      //       if (value.isNotEmpty) {
+      //         removeError(error: kPassNullError);
+      //       } else if (value.length >= 8) {
+      //         removeError(error: kShortPassError);
+      //       }
+      //       return null;
+      //     },
+      //     validator: (value) {
+      //       if (value!.isEmpty) {
+      //         addError(error: kPassNullError);
+      //         return "";
+      //       } else if (value.length < 8) {
+      //         addError(error: kShortPassError);
+      //         return "";
+      //       }
+      //       return null;
+      //     },
+      decoration: InputDecoration(
+        labelText: "Masukkan Password",
+        hintText: "******",
+        labelStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: getPropertionateScreenWidth(18)),
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        prefixIcon: Icon(Icons.lock),
+      ),
+    );
+  }
 
-  TextFormField buildPhoneFormField() {
+  TextFormField buildEmailFormField() {
     return TextFormField(
       // keyboardType: TextInputType.emailAddress,
       // onSaved: (newValue) => email = newValue,
@@ -137,17 +140,17 @@ class _LoginFormState extends State<LoginForm> {
       //   return null;
       // },
       decoration: InputDecoration(
-        labelText: "Masukkan No.Hp",
+        labelText: "Masukkan Email",
         labelStyle: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: getPropertionateScreenWidth(18)),
-        hintText: "Ex: 081xxxxx",
+        hintText: "Ex: example@gmail.com",
         hintStyle: TextStyle(
             fontSize: getPropertionateScreenWidth(12), color: secondaryColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        prefixIcon: Icon(Icons.phone),
+        prefixIcon: Icon(Icons.email),
       ),
     );
   }

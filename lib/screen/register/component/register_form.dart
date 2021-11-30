@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/screen/otp/otp.dart';
+import 'package:marketplace/screen/datadiri/datadiri.dart';
 import 'package:marketplace/size_config.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -16,9 +16,9 @@ class _RegisterFormState extends State<RegisterForm> {
       // key: _formKey,
       child: Column(
         children: [
-          buildNameFormField(),
+          buildEmailFormField(),
           SizedBox(height: getPropertionateScreenHeight(30)),
-          buildPhoneFormField(),
+          buildPasswordFormField(),
           SizedBox(height: getPropertionateScreenHeight(40)),
           DefaultButton(
             text: "Daftar",
@@ -29,7 +29,7 @@ class _RegisterFormState extends State<RegisterForm> {
               //   KeyboardUtil.hideKeyboard(context);
               //   Navigator.pushNamed(context, Home.routeName);
               // }
-              Navigator.pushNamed(context, OtpScreen.routeName);
+              Navigator.pushNamed(context, DataDiriRegister.routeName);
             },
           ),
         ],
@@ -37,38 +37,38 @@ class _RegisterFormState extends State<RegisterForm> {
     );
   }
 
-  TextFormField buildPhoneFormField() {
+  TextFormField buildEmailFormField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: "Masukkan No.Hp",
+        labelText: "Masukkan Email",
         labelStyle: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: getPropertionateScreenWidth(18)),
-        hintText: "Ex: 081xxxxx",
+        hintText: "Ex: example@gmail.com",
         hintStyle: TextStyle(
             fontSize: getPropertionateScreenWidth(12), color: secondaryColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        prefixIcon: Icon(Icons.phone),
+        prefixIcon: Icon(Icons.mail),
       ),
     );
   }
 
-  TextFormField buildNameFormField() {
+  TextFormField buildPasswordFormField() {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: "Masukkan Nama Lengkap",
+        labelText: "Masukkan Password",
         labelStyle: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: getPropertionateScreenWidth(18)),
-        hintText: "Nama alengkap anda",
+        hintText: "*******",
         hintStyle: TextStyle(
             fontSize: getPropertionateScreenWidth(12), color: secondaryColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        prefixIcon: Icon(Icons.people_alt),
+        prefixIcon: Icon(Icons.lock),
       ),
     );
   }
