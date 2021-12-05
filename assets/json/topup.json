@@ -1,0 +1,58 @@
+{
+  "kategori" : {
+    "dvbchfdcbvnfdv" : {
+      "gambar" : "assets/icons/Pulsa.svg",
+      "id" : "dvbchfdcbvnfdv",
+      "nama" : "Topup",
+      "subkategori" : {
+        "chdbchdshbcxh" : {
+          "detail" : {
+            "dsgdhjgvcjfd" : {
+              "harga" : 1000,
+              "id" : "dsgdhjgvcjfd",
+              "nominal" : 1250
+            },
+            "hfjdhfjdh" : {
+              "harga" : 10000,
+              "id" : "hfjdhfjdh",
+              "nominal" : 10125
+            },
+            "jjhfvhdjh" : {
+              "harga" : 5000,
+              "id" : "jjhfvhdjh",
+              "nominal" : 5250
+            }
+          },
+          "gambar" : "assets/icons/Pulsa.svg",
+          "id" : "chdbchdshbcxh",
+          "nama" : "Pulsa"
+        },
+        "dgfhdg" : {
+          "gambar" : "assets/icons/Elektronik.svg",
+          "id" : "dgfhdg",
+          "nama" : "E-Wallet"
+        },
+        "dvcfvfdv" : {
+          "gambar" : "assets/icons/Tagihan.svg",
+          "id" : "dvcfvfdv",
+          "nama" : "Paket data"
+        },
+        "svdghsvd" : {
+          "gambar" : "assets/icons/More.svg",
+          "id" : "svdghsvd",
+          "nama" : "Games"
+        }
+      }
+    },
+    "jbcfjdbcf" : {
+      "gambar" : "assets/icons/More.svg",
+      "id" : "jbcfjdbcf",
+      "nama" : "Produk"
+    },
+    "yftguydgvchd" : {
+      "gambar" : "assets/icons/Elektronik.svg",
+      "id" : "yftguydgvchd",
+      "nama" : "Tagihan"
+    }
+  }
+}

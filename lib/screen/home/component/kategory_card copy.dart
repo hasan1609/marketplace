@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/kategorimenu.dart';
 import 'package:marketplace/model/Kategori.dart';
-import 'package:marketplace/screen/subkategori/subkategori_screen.dart';
 import 'package:marketplace/size_config.dart';
 
 class categoryMenu extends StatelessWidget {
@@ -20,8 +19,9 @@ class categoryMenu extends StatelessWidget {
             kategoriList.length,
             (index) => kategoriCard(
               kategori: kategoriList[index],
-              press: () =>
-                  Navigator.pushNamed(context, SubKategoriMenu.routeName),
+              press: () {},
+              // press: () =>
+              //     Navigator.pushNamed(context, SubKategoriMenu.routeName),
             ),
           ),
         ],

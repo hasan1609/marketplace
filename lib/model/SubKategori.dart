@@ -33,31 +33,7 @@ List<SubKategori> subkategoriList = [
   ),
   SubKategori(
     id: 4,
-    nama: "Lebih Banyak",
-    gambar: "assets/icons/More.svg",
-    id_kategori: 1,
-  ),
-  SubKategori(
-    id: 5,
-    nama: "Pulsa & Data",
-    gambar: "assets/icons/Pulsa.svg",
-    id_kategori: 2,
-  ),
-  SubKategori(
-    id: 6,
-    nama: "Tagihan",
-    gambar: "assets/icons/Tagihan.svg",
-    id_kategori: 2,
-  ),
-  SubKategori(
-    id: 7,
-    nama: "Elektronik",
-    gambar: "assets/icons/Elektronik.svg",
-    id_kategori: 2,
-  ),
-  SubKategori(
-    id: 8,
-    nama: "Lebih Banyak",
+    nama: "Games",
     gambar: "assets/icons/More.svg",
     id_kategori: 1,
   ),

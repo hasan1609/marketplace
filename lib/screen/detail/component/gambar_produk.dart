@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 import 'package:marketplace/size_config.dart';
 
 class produkGambar extends StatefulWidget {

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/component/bottom_nav_btn_checkout.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/screen/subkategori/component/body.dart';
+import 'package:marketplace/model/SubKategori.dart';
+import 'package:marketplace/screen/checkouttopup/checkouttopup.dart';
+import 'package:marketplace/screen/topup/component/body.dart';
 import 'package:marketplace/size_config.dart';
 
-class SubKategoriMenu extends StatelessWidget {
+class Topup extends StatelessWidget {
   static String routeName = "/subkategori";
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return DefaultTabController(
-      length: 4,
+      length: subkategoriList.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -24,7 +27,7 @@ class SubKategoriMenu extends StatelessWidget {
                 color: Colors.black,
                 fontSize: getPropertionateScreenWidth(14),
                 fontWeight: FontWeight.w600),
-            tabs: <Widget>[
+            tabs: [
               Tab(
                 text: 'Pulsa',
               ),
@@ -41,6 +44,15 @@ class SubKategoriMenu extends StatelessWidget {
           ),
         ),
         body: Body(),
+        bottomNavigationBar: CustomBottomNavBarCheckout(
+          text: "Beli",
+          press: () {
+            Navigator.pushNamed(
+              context,
+              CheckoutTopup.routeName,
+            );
+          },
+        ),
       ),
     );
   }

@@ -2,50 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/size_config.dart';
 
-class CardPulsa extends StatelessWidget {
-  const CardPulsa({
+class TagihanCard extends StatelessWidget {
+  const TagihanCard({
     Key? key,
     this.width = 140,
     required this.press,
-    required this.selected,
     required this.harga,
     required this.nominal,
   }) : super(key: key);
 
   final double width, harga, nominal;
   final VoidCallback press;
-  final bool selected;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: press,
       child: Container(
-        width: getPropertionateScreenWidth(140),
-        padding: EdgeInsets.symmetric(
-            horizontal: getPropertionateScreenWidth(10),
-            vertical: getPropertionateScreenWidth(5)),
-        margin:
-            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(3)),
+        padding: EdgeInsets.all(
+          getPropertionateScreenWidth(10),
+        ),
         decoration: BoxDecoration(
-          border: Border.all(
-            color: selected ? primaryColor : Colors.transparent,
-            width: selected ? 3 : 0,
-          ),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5,
-              offset: Offset(2, 0),
-              color: accentColor3.withOpacity(0.3),
-            ),
-          ],
+          border: Border.all(color: Theme.of(context).dividerColor),
         ),
         child: SizedBox(
           width: getPropertionateScreenWidth(width),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "${nominal}",
@@ -59,7 +43,7 @@ class CardPulsa extends StatelessWidget {
                 "Harga : ${harga}",
                 style: TextStyle(
                   color: primaryColor,
-                  fontSize: getPropertionateScreenWidth(14),
+                  fontSize: getPropertionateScreenWidth(13),
                   fontWeight: FontWeight.w600,
                 ),
               ),

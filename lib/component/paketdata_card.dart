@@ -1,39 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/constant.dart';
+import 'package:marketplace/model/Paketdata.dart';
+import 'package:marketplace/model/Pulsa.dart';
 import 'package:marketplace/size_config.dart';
+import 'package:readmore/readmore.dart';
 
-class CardPulsa extends StatelessWidget {
-  const CardPulsa({
+class PaketDataCard extends StatelessWidget {
+  const PaketDataCard({
     Key? key,
     this.width = 140,
+    required this.paketData,
     required this.press,
     required this.selected,
-    required this.harga,
-    required this.nominal,
   }) : super(key: key);
 
-  final double width, harga, nominal;
-  final VoidCallback press;
+  final double width;
   final bool selected;
+  final PaketData paketData;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: press,
       child: Container(
-        width: getPropertionateScreenWidth(140),
+        width: getPropertionateScreenWidth(200),
         padding: EdgeInsets.symmetric(
             horizontal: getPropertionateScreenWidth(10),
             vertical: getPropertionateScreenWidth(5)),
         margin:
             EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(3)),
         decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: selected ? primaryColor : Colors.transparent,
             width: selected ? 3 : 0,
           ),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
               blurRadius: 5,
@@ -48,7 +51,7 @@ class CardPulsa extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${nominal}",
+                paketData.nama,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: getPropertionateScreenWidth(18),
@@ -56,12 +59,24 @@ class CardPulsa extends StatelessWidget {
                 ),
               ),
               Text(
-                "Harga : ${harga}",
+                "${paketData.harga}",
                 style: TextStyle(
                   color: primaryColor,
                   fontSize: getPropertionateScreenWidth(14),
                   fontWeight: FontWeight.w600,
                 ),
+              ),
+              Divider(
+                color: Colors.black,
+              ),
+              ReadMoreText(
+                paketData.keterangan,
+                trimLines: 2,
+                colorClickableText: primaryColor,
+                trimMode: TrimMode.Line,
+                trimCollapsedText: 'Lebih Banyak...',
+                trimExpandedText: ' Sembunyikan...',
+                style: TextStyle(fontSize: getPropertionateScreenWidth(12)),
               ),
             ],
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/bottom_detail.dart';
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 import 'package:marketplace/screen/detail/component/custom_bar.dart';
 import 'package:marketplace/screen/detail/component/body.dart';
 import 'package:marketplace/size_config.dart';

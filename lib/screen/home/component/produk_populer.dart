@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/produk_card.dart';
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 import 'package:marketplace/screen/detail/detail.dart';
 import 'package:marketplace/screen/home/component/section_bar.dart';
 import 'package:marketplace/screen/populerproduk/populerproduk.dart';

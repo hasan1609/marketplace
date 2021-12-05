@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 import 'package:marketplace/screen/detail/component/deskripsi_produk.dart';
 import 'package:marketplace/screen/detail/component/gambar_produk.dart';
 import 'package:marketplace/screen/detail/component/warna_dot.dart';

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace/screen/populerproduk/component/body.dart';
+import 'package:marketplace/screen/tagihan/component/body.dart';
 import 'package:marketplace/size_config.dart';
 
-class PopulerProduk extends StatelessWidget {
-  static String routeName = "/populerproduk";
-
+class Tagihan extends StatelessWidget {
+  static String routeName = "/tagihan";
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -12,7 +11,7 @@ class PopulerProduk extends StatelessWidget {
       backgroundColor: Color(0xfff5f6f9),
       appBar: AppBar(
         title: Text(
-          "Produk Populer",
+          "Tagihan",
           style: TextStyle(color: Colors.black),
         ),
       ),

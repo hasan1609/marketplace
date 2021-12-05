@@ -32,6 +32,8 @@ class _LoginFormState extends State<LoginForm> {
   //     });
   // }
 
+  bool viewPass = true;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -103,6 +105,7 @@ class _LoginFormState extends State<LoginForm> {
       //       }
       //       return null;
       //     },
+      obscureText: viewPass,
       decoration: InputDecoration(
         labelText: "Masukkan Password",
         hintText: "******",
@@ -113,6 +116,15 @@ class _LoginFormState extends State<LoginForm> {
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         prefixIcon: Icon(Icons.lock),
+        suffixIcon: IconButton(
+          icon: Icon(
+              viewPass ? Icons.remove_red_eye : Icons.remove_red_eye_outlined),
+          onPressed: () {
+            setState(() {
+              viewPass = !viewPass;
+            });
+          },
+        ),
       ),
     );
   }

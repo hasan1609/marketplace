@@ -1,4 +1,4 @@
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 
 class Cart {
   final Produk produk;

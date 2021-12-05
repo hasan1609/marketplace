@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/model/produk.dart';
+import 'package:marketplace/model/Produk.dart';
 import 'package:marketplace/size_config.dart';
 
 class produkSeller extends StatelessWidget {
