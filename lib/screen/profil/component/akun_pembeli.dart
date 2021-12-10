@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marketplace/component/logout.dart';
 import 'package:marketplace/component/pusatbantuan.dart';
 import 'package:marketplace/component/saldo.dart';
+import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/screen/profil/component/pembeli/profil_transaksi_card.dart';
 import 'package:marketplace/component/profilfoto.dart';
 import 'package:marketplace/screen/profil/component/pembeli/ulasanprofil.dart';
@@ -85,7 +86,9 @@ class AkunPembeli extends StatelessWidget {
           SizedBox(
             height: getPropertionateScreenWidth(10),
           ),
-          logOut(),
+          logOut(
+            press: () {},
+          ),
         ],
       ),
     );
