@@ -23,8 +23,8 @@ class DetailSubkategoriScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Body(),
-      // HalEwallet(),
+      // body: Body(),
+      body: HalEwallet(),
       // HalPulsa(),
       // HalPaketData(),
       // HalGames()
