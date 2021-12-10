@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:marketplace/model/Kategori.dart';
+import 'package:marketplace/model/testKategori.dart';
 import 'package:marketplace/size_config.dart';
 
 class kategoriCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class kategoriCard extends StatelessWidget {
     required this.kategori,
   }) : super(key: key);
 
-  final Kategori kategori;
+  final tesKategori kategori;
   final GestureTapCallback press;
 
   @override
