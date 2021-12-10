@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/enum.dart';
+import 'package:marketplace/screen/chat/chat_screen.dart';
 import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/screen/profil/profil.dart';
 
@@ -59,11 +60,13 @@ class CustomBottomNavBar extends StatelessWidget {
             IconButton(
               icon: SvgPicture.asset(
                 "assets/icons/Chat bubble Icon.svg",
-                color: MenuState.message == selectedMenu
+                color: MenuState.chat == selectedMenu
                     ? primaryColor
                     : inActiveIconColor,
               ),
               onPressed: () {},
+              // onPressed: () =>
+              //     Navigator.pushReplacementNamed(context, ChatScreen.routeName),
             ),
             IconButton(
               icon: SvgPicture.asset(

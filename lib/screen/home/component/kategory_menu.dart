@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:marketplace/screen/produk/produk_screen.dart';
-import 'package:marketplace/screen/tagihan/tagihan.dart';
+import 'package:marketplace/component/kategorimenu.dart';
+import 'package:marketplace/model/Kategori.dart';
+import 'package:marketplace/model/testKategori.dart';
+import 'package:marketplace/screen/subkategori/subkategori_screen.dart';
 import 'package:marketplace/screen/topup/topup.dart';
 import 'package:marketplace/size_config.dart';
 
@@ -17,119 +18,18 @@ class categoryMenu extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(
-            onTap: () => Navigator.pushNamed(context, Topup.routeName),
-            child: SizedBox(
-              width: getPropertionateScreenWidth(55),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFDFF5FF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SvgPicture.asset("assets/icons/Pulsa.svg"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: getPropertionateScreenWidth(5),
-                  ),
-                  Text(
-                    "Top-Up",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: getPropertionateScreenWidth(10)),
-                  )
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () => Navigator.pushNamed(context, Tagihan.routeName),
-            child: SizedBox(
-              width: getPropertionateScreenWidth(55),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFDFF5FF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SvgPicture.asset("assets/icons/Tagihan.svg"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: getPropertionateScreenWidth(5),
-                  ),
-                  Text(
-                    "Tagihan",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: getPropertionateScreenWidth(10)),
-                  )
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () => Navigator.pushNamed(context, ProdukScreen.routeName),
-            child: SizedBox(
-              width: getPropertionateScreenWidth(55),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFDFF5FF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SvgPicture.asset("assets/icons/Pulsa.svg"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: getPropertionateScreenWidth(5),
-                  ),
-                  Text(
-                    "Produk",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: getPropertionateScreenWidth(10)),
-                  )
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: SizedBox(
-              width: getPropertionateScreenWidth(55),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      padding: EdgeInsets.all(getPropertionateScreenWidth(10)),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFDFF5FF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SvgPicture.asset("assets/icons/Pulsa.svg"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: getPropertionateScreenWidth(5),
-                  ),
-                  Text(
-                    "Lebih banyak",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: getPropertionateScreenWidth(10)),
-                  )
-                ],
+          ...List.generate(
+            tesKategoriList.length,
+            (index) => kategoriCard(
+              kategori: tesKategoriList[index],
+              // press: () {},
+              // press: () =>
+              //     Navigator.pushNamed(context, SubKategoriMenu.routeName),
+              press: () => Navigator.pushNamed(
+                context,
+                subKategoriScreen.routeName,
+                arguments:
+                    kategoriDetailArgumen(kategori: tesKategoriList[index]),
               ),
             ),
           ),
