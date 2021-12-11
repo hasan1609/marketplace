@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:marketplace/component/card_pulsa.dart';
 import 'package:marketplace/component/labeltext.dart';
 import 'package:marketplace/model/Pulsa.dart';
+<<<<<<< HEAD
+=======
+import 'package:marketplace/model/testKategori.dart';
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 import 'package:marketplace/size_config.dart';
 
 class HalPulsa extends StatefulWidget {
@@ -14,6 +18,11 @@ class HalPulsa extends StatefulWidget {
 class _HalPulsaState extends State<HalPulsa> {
   int optionSelected = 0;
 
+<<<<<<< HEAD
+=======
+  // final tesKategori kategori;
+
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
   void checkOption(int index) {
     setState(() {
       optionSelected = index;
@@ -22,6 +31,10 @@ class _HalPulsaState extends State<HalPulsa> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
+=======
+    var detailsubarguments;
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
     return Container(
       margin: EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(20)),
       child: Column(
@@ -81,12 +94,25 @@ class _HalPulsaState extends State<HalPulsa> {
                 mainAxisSpacing: getPropertionateScreenWidth(10),
                 crossAxisCount: 2,
                 children: [
+<<<<<<< HEAD
                   for (int i = 0; i < PulsaList.length; i++)
                     CardPulsa(
                       press: () => checkOption(i + 1),
                       selected: i + 1 == optionSelected,
                       harga: PulsaList[i].harga,
                       nominal: PulsaList[i].nominal,
+=======
+                  for (int i = 0;
+                      i < detailsubarguments.kategori.detailSubKatgori.length;
+                      i++)
+                    CardPulsa(
+                      press: () => checkOption(i + 1),
+                      selected: i + 1 == optionSelected,
+                      harga:
+                          detailsubarguments.kategori.detailSubKatgori[i].harga,
+                      nominal:
+                          detailsubarguments.kategori.detailSubKatgori[i].nama,
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
                     )
                 ],
               ),

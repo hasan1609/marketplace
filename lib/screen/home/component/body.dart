@@ -2,8 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/saldo.dart';
+<<<<<<< HEAD
 import 'package:marketplace/screen/home/component/home_header.dart';
 import 'package:marketplace/screen/home/component/kategory_menu.dart';
+=======
+import 'package:marketplace/screen/home/component/kategory_menuku.dart';
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 import 'package:marketplace/screen/home/component/produk_populer.dart';
 import 'package:marketplace/screen/home/component/rekomendasi.dart';
 import 'package:marketplace/screen/home/component/iklan.dart';

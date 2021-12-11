@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
       title: 'Marketplace',
+=======
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
       theme: theme(),
       // home: SplashScreen(),
       initialRoute: SplashScreen.routeName,

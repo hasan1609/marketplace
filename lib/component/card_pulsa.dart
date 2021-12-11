@@ -12,7 +12,8 @@ class CardPulsa extends StatelessWidget {
     required this.nominal,
   }) : super(key: key);
 
-  final double width, harga, nominal;
+  final double width, harga;
+  final String nominal;
   final VoidCallback press;
   final bool selected;
 

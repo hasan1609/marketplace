@@ -6,7 +6,10 @@ import 'package:marketplace/component/logout.dart';
 import 'package:marketplace/component/pusatbantuan.dart';
 import 'package:marketplace/component/saldo.dart';
 import 'package:marketplace/screen/home/home.dart';
+<<<<<<< HEAD
 import 'package:marketplace/screen/login/login.dart';
+=======
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 import 'package:marketplace/screen/profil/component/pembeli/profil_transaksi_card.dart';
 import 'package:marketplace/component/profilfoto.dart';
 import 'package:marketplace/screen/profil/component/pembeli/ulasanprofil.dart';
@@ -136,10 +139,14 @@ class AkunPembeli extends StatelessWidget {
             height: getPropertionateScreenWidth(10),
           ),
           logOut(
+<<<<<<< HEAD
             press: () {
               AuthService().logout();
               Navigator.pushNamed(context, Login.routeName);
             },
+=======
+            press: () {},
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
           ),
         ],
       ),
