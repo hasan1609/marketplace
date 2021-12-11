@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marketplace/component/card_pulsa.dart';
 import 'package:marketplace/component/labeltext.dart';
 import 'package:marketplace/model/Pulsa.dart';
+import 'package:marketplace/model/testKategori.dart';
 import 'package:marketplace/size_config.dart';
 
 class HalPulsa extends StatefulWidget {
@@ -14,6 +15,8 @@ class HalPulsa extends StatefulWidget {
 class _HalPulsaState extends State<HalPulsa> {
   int optionSelected = 0;
 
+  // final tesKategori kategori;
+
   void checkOption(int index) {
     setState(() {
       optionSelected = index;
@@ -22,6 +25,7 @@ class _HalPulsaState extends State<HalPulsa> {
 
   @override
   Widget build(BuildContext context) {
+    var detailsubarguments;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(20)),
       child: Column(
@@ -81,12 +85,16 @@ class _HalPulsaState extends State<HalPulsa> {
                 mainAxisSpacing: getPropertionateScreenWidth(10),
                 crossAxisCount: 2,
                 children: [
-                  for (int i = 0; i < PulsaList.length; i++)
+                  for (int i = 0;
+                      i < detailsubarguments.kategori.detailSubKatgori.length;
+                      i++)
                     CardPulsa(
                       press: () => checkOption(i + 1),
                       selected: i + 1 == optionSelected,
-                      harga: PulsaList[i].harga,
-                      nominal: PulsaList[i].nominal,
+                      harga:
+                          detailsubarguments.kategori.detailSubKatgori[i].harga,
+                      nominal:
+                          detailsubarguments.kategori.detailSubKatgori[i].nama,
                     )
                 ],
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/screen/home/component/home_header.dart';
 import 'package:marketplace/component/saldo.dart';
-import 'package:marketplace/screen/home/component/kategory_menu.dart';
+import 'package:marketplace/screen/home/component/kategory_menuku.dart';
 import 'package:marketplace/screen/home/component/produk_populer.dart';
 import 'package:marketplace/screen/home/component/rekomendasi.dart';
 import 'package:marketplace/screen/home/component/iklan.dart';

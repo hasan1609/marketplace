@@ -3,7 +3,6 @@ import 'package:marketplace/component/kategorimenu.dart';
 import 'package:marketplace/model/Kategori.dart';
 import 'package:marketplace/model/testKategori.dart';
 import 'package:marketplace/screen/subkategori/subkategori_screen.dart';
-import 'package:marketplace/screen/topup/topup.dart';
 import 'package:marketplace/size_config.dart';
 
 class categoryMenu extends StatelessWidget {
@@ -22,9 +21,6 @@ class categoryMenu extends StatelessWidget {
             tesKategoriList.length,
             (index) => kategoriCard(
               kategori: tesKategoriList[index],
-              // press: () {},
-              // press: () =>
-              //     Navigator.pushNamed(context, SubKategoriMenu.routeName),
               press: () => Navigator.pushNamed(
                 context,
                 subKategoriScreen.routeName,
