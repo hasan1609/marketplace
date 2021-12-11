@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:marketplace/component/bottom_nav_btn_checkout.dart';
+=======
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketplace/component/bottom_nav_btn_checkout.dart';
 import 'package:marketplace/component/card_pulsa.dart';
 import 'package:marketplace/component/labeltext.dart';
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 import 'package:marketplace/model/testKategori.dart';
 import 'package:marketplace/screen/checkouttopup/checkouttopup.dart';
 import 'package:marketplace/screen/detailsubkategori/component/body.dart';
@@ -10,6 +14,13 @@ import 'package:marketplace/screen/detailsubkategori/component/ewalletscreen.dar
 import 'package:marketplace/screen/detailsubkategori/component/gamescreen.dart';
 import 'package:marketplace/screen/detailsubkategori/component/paketdatascreen.dart';
 import 'package:marketplace/screen/detailsubkategori/component/pulsascreen.dart';
+<<<<<<< HEAD
+
+class DetailSubkategoriScreen extends StatelessWidget {
+  static String routeName = "/detailsubkategori";
+
+  @override
+=======
 import 'package:marketplace/size_config.dart';
 
 class DetailSubkategoriScreen extends StatefulWidget {
@@ -31,6 +42,7 @@ class _DetailSubkategoriScreenState extends State<DetailSubkategoriScreen> {
   }
 
   @override
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
   Widget build(BuildContext context) {
     final subkategoriDetailArgumen detailsubarguments =
         ModalRoute.of(context)!.settings.arguments as subkategoriDetailArgumen;
@@ -43,7 +55,14 @@ class _DetailSubkategoriScreenState extends State<DetailSubkategoriScreen> {
         ),
       ),
       // body: Body(),
+<<<<<<< HEAD
+      body: HalEwallet(),
+      // HalPulsa(),
+      // HalPaketData(),
+      // HalGames()
+=======
       body: HalPulsa(detailsubarguments),
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 
       // body: (tesKategoriList.isNotEmpty) ? Container() : Container()
       bottomNavigationBar: CustomBottomNavBarCheckout(
@@ -57,6 +76,8 @@ class _DetailSubkategoriScreenState extends State<DetailSubkategoriScreen> {
       ),
     );
   }
+<<<<<<< HEAD
+=======
 
   Container HalPulsa(subkategoriDetailArgumen detailsubarguments) {
     return Container(
@@ -140,6 +161,7 @@ class _DetailSubkategoriScreenState extends State<DetailSubkategoriScreen> {
       ),
     );
   }
+>>>>>>> 19d2d5b87e57e867985616cbb9bca839ccb7939b
 }
 
 class subkategoriDetailArgumen {
