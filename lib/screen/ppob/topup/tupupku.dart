@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/component/subkat_card.dart';
+import 'package:marketplace/screen/ewalletku/ewalletku.dart';
 import 'package:marketplace/screen/paketdataku/paketdataku.dart';
 import 'package:marketplace/screen/pulsaku/pulsaku.dart';
 import 'package:marketplace/size_config.dart';
@@ -36,7 +37,7 @@ class TopupKu extends StatelessWidget {
               nama: "Paket Data",
             ),
             SubkatCard(
-              press: () {},
+              press: () => Navigator.pushNamed(context, Ewalletku.routeName),
               gambar: "assets/icons/Pulsa.svg",
               nama: "E-Wallet",
             ),
