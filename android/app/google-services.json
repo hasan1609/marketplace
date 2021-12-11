@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "808174551829",
+    "project_id": "api-maketer",
+    "storage_bucket": "api-maketer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808174551829:android:b4d2d65687f8a14f895f1c",
+        "android_client_info": {
+          "package_name": "com.marketplace.marketplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808174551829-lmgp8vdeb294h22ur8gtohkcui6bttnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzSH77Oc8ombabHh643JGzpL8ICbCACig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808174551829-lmgp8vdeb294h22ur8gtohkcui6bttnc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace/component/custom_surfic.dart';
+import 'package:marketplace/auth_sercives.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
-import 'package:marketplace/helper/keyboard.dart';
 import 'package:marketplace/screen/home/home.dart';
 import 'package:marketplace/screen/lupa_password/forgot.dart';
 import 'package:marketplace/size_config.dart';
@@ -13,25 +13,9 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  // final _formKey = GlobalKey<FormState>();
-  // String? email;
-  // String? password;
-  // final List<String?> errors = [];
-
-  // void addError({String? error}) {
-  //   if (!errors.contains(error))
-  //     setState(() {
-  //       errors.add(error);
-  //     });
-  // }
-
-  // void removeError({String? error}) {
-  //   if (errors.contains(error))
-  //     setState(() {
-  //       errors.remove(error);
-  //     });
-  // }
-
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   bool viewPass = true;
 
   @override
@@ -68,14 +52,25 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(height: getPropertionateScreenHeight(10)),
           DefaultButton(
             text: "Masuk",
-            press: () {
-              // if (_formKey.currentState!.validate()) {
-              //   _formKey.currentState!.save();
-              //   // if all are valid then go to success screen
-              //   KeyboardUtil.hideKeyboard(context);
-              //   Navigator.pushNamed(context, Home.routeName);
-              // }
-              Navigator.pushNamed(context, Home.routeName);
+            press: () async {
+              try {
+                UserCredential userCredential = await FirebaseAuth.instance
+                    .signInWithEmailAndPassword(
+                        email: email.text, password: password.text);
+
+                Navigator.pushNamed(context, Home.routeName);
+                print(userCredential.user!.uid.toString());
+                AuthService().setsession(userCredential.user!.uid.toString());
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Anda Tidak Memiliki Akun")));
+                } else if (e.code == 'wrong-password') {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("Password salah")));
+                }
+              }
+              //Navigator.pushNamed(context, Home.routeName);
             },
           ),
         ],
@@ -126,6 +121,7 @@ class _LoginFormState extends State<LoginForm> {
           },
         ),
       ),
+      controller: password,
     );
   }
 
@@ -164,6 +160,7 @@ class _LoginFormState extends State<LoginForm> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         prefixIcon: Icon(Icons.email),
       ),
+      controller: email,
     );
   }
 }

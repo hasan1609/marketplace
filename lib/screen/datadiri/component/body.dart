@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/component/labeltext.dart';
 import 'package:marketplace/screen/home/home.dart';
+import 'package:marketplace/screen/login/login.dart';
 import 'package:marketplace/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -14,6 +17,13 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  User? user = FirebaseAuth.instance.currentUser;
+
+  final TextEditingController name = TextEditingController();
+  final TextEditingController numberPhone = TextEditingController();
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
   File? image;
 
   Future getImage(ImageSource source) async {
@@ -104,6 +114,7 @@ class _BodyState extends State<Body> {
                     vertical: getPropertionateScreenWidth(9),
                   ),
                 ),
+                controller: name,
               ),
               SizedBox(
                 height: getPropertionateScreenWidth(15),
@@ -126,36 +137,48 @@ class _BodyState extends State<Body> {
                     vertical: getPropertionateScreenWidth(9),
                   ),
                 ),
+                controller: numberPhone,
               ),
               SizedBox(
                 height: getPropertionateScreenWidth(15),
               ),
-              labelInputText(text1: "Email anda"),
-              SizedBox(
-                height: getPropertionateScreenWidth(10),
-              ),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  hintStyle:
-                      TextStyle(fontSize: getPropertionateScreenWidth(12)),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: getPropertionateScreenWidth(20),
-                    vertical: getPropertionateScreenWidth(9),
-                  ),
-                ),
-              ),
+              // labelInputText(text1: "Email anda"),
+              // SizedBox(
+              //   height: getPropertionateScreenWidth(10),
+              // ),
+              // TextFormField(
+              //   keyboardType: TextInputType.text,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(15),
+              //     ),
+              //     hintStyle:
+              //         TextStyle(fontSize: getPropertionateScreenWidth(12)),
+              //     contentPadding: EdgeInsets.symmetric(
+              //       horizontal: getPropertionateScreenWidth(20),
+              //       vertical: getPropertionateScreenWidth(9),
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: getPropertionateScreenWidth(20),
               ),
               DefaultButton(
                 text: "Daftar",
-                press: () =>
-                    Navigator.pushReplacementNamed(context, Home.routeName),
-              )
+                press: () async {
+                  print(user!.uid);
+                  users.doc(user!.uid).set({
+                    'name': name.text,
+                    'numberPhone': numberPhone.text,
+                    'uid': user!.uid,
+                    'email': user!.email,
+                    'coin': '0',
+                    'balance': '0',
+                  });
+
+                  Navigator.pushNamed(context, Login.routeName);
+                },
+              ),
             ],
           ),
         ),

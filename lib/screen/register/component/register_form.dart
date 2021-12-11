@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:marketplace/auth_sercives.dart';
 import 'package:marketplace/component/default_button.dart';
 import 'package:marketplace/constant.dart';
 import 'package:marketplace/screen/datadiri/datadiri.dart';
@@ -10,6 +13,11 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
   bool viewPass = true;
   @override
   Widget build(BuildContext context) {
@@ -23,14 +31,25 @@ class _RegisterFormState extends State<RegisterForm> {
           SizedBox(height: getPropertionateScreenHeight(40)),
           DefaultButton(
             text: "Daftar",
-            press: () {
-              // if (_formKey.currentState!.validate()) {
-              //   _formKey.currentState!.save();
-              //   // if all are valid then go to success screen
-              //   KeyboardUtil.hideKeyboard(context);
-              //   Navigator.pushNamed(context, Home.routeName);
-              // }
-              Navigator.pushNamed(context, DataDiriRegister.routeName);
+            press: () async {
+              try {
+                UserCredential userCredential =
+                    await firebaseAuth.createUserWithEmailAndPassword(
+                        email: email.text, password: password.text);
+                users.doc(userCredential.user!.uid).set(
+                    {'email': email.text, 'uid': userCredential.user!.uid});
+                Navigator.pushNamed(context, DataDiriRegister.routeName);
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Anda Tidak Memiliki Akun")));
+                } else if (e.code == 'weak-password') {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Password Min 6 Karakter")));
+                }
+              }
+
+              // Navigator.pushNamed(context, DataDiriRegister.routeName);
             },
           ),
         ],
@@ -53,31 +72,12 @@ class _RegisterFormState extends State<RegisterForm> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         prefixIcon: Icon(Icons.mail),
       ),
+      controller: email,
     );
   }
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
-      //     obscureText: true,
-      //     onSaved: (newValue) => password = newValue,
-      //     onChanged: (value) {
-      //       if (value.isNotEmpty) {
-      //         removeError(error: kPassNullError);
-      //       } else if (value.length >= 8) {
-      //         removeError(error: kShortPassError);
-      //       }
-      //       return null;
-      //     },
-      //     validator: (value) {
-      //       if (value!.isEmpty) {
-      //         addError(error: kPassNullError);
-      //         return "";
-      //       } else if (value.length < 8) {
-      //         addError(error: kShortPassError);
-      //         return "";
-      //       }
-      //       return null;
-      //     },
       obscureText: viewPass,
       decoration: InputDecoration(
         labelText: "Masukkan Password",
@@ -99,6 +99,7 @@ class _RegisterFormState extends State<RegisterForm> {
           },
         ),
       ),
+      controller: password,
     );
   }
 }

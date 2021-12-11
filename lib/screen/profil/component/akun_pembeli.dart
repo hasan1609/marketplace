@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:marketplace/auth_sercives.dart';
 import 'package:marketplace/component/logout.dart';
 import 'package:marketplace/component/pusatbantuan.dart';
 import 'package:marketplace/component/saldo.dart';
 import 'package:marketplace/screen/home/home.dart';
+import 'package:marketplace/screen/login/login.dart';
 import 'package:marketplace/screen/profil/component/pembeli/profil_transaksi_card.dart';
 import 'package:marketplace/component/profilfoto.dart';
 import 'package:marketplace/screen/profil/component/pembeli/ulasanprofil.dart';
@@ -18,6 +22,13 @@ class AkunPembeli extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+    final Stream<DocumentSnapshot<Map<String, dynamic>>> firestore =
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(user!.uid)
+            .snapshots();
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: getPropertionateScreenWidth(20)),
       child: Column(
@@ -25,15 +36,53 @@ class AkunPembeli extends StatelessWidget {
           SizedBox(
             height: getPropertionateScreenWidth(20),
           ),
-          profilFoto(
-            nama: "Wafi Elek",
-            text: "Verified Acoount",
-            foto: AssetImage("assets/images/profile.jpg"),
+          StreamBuilder(
+            stream: firestore,
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                if (user.emailVerified.toString() == 'false') {
+                  return Container(
+                    child: profilFoto(
+                        nama: snapshot.data['name'],
+                        text: 'Belum Verifikasi',
+                        foto: const AssetImage("assets/images/profile.jpg")),
+                  );
+                } else {
+                  return Container(
+                    child: profilFoto(
+                        nama: snapshot.data['name'],
+                        text: 'Terverifikasi',
+                        foto: const AssetImage("assets/images/profile.jpg")),
+                  );
+                }
+              } else {
+                return Text('Tidak Ada Data');
+              }
+            },
           ),
+          // profilFoto(
+          //   nama: "Wafi Elek",
+          //   text: "Verified Acoount",
+          //   foto: AssetImage("assets/images/profile.jpg"),
+          // ),
           SizedBox(
             height: getPropertionateScreenWidth(20),
           ),
-          Saldo(saldoKoin: "1.000.000.000", saldoUang: "10.000.000.000"),
+          StreamBuilder(
+            stream: firestore,
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                return Container(
+                  child: Saldo(
+                      saldoKoin: snapshot.data['coin'],
+                      saldoUang: snapshot.data['balance']),
+                );
+              } else {
+                return Text('Tidak Ada Data');
+              }
+            },
+          ),
+          //  Saldo(saldoKoin: "1.000.000.000", saldoUang: "10.000.000.000"),
           SizedBox(
             height: getPropertionateScreenWidth(20),
           ),
@@ -87,7 +136,10 @@ class AkunPembeli extends StatelessWidget {
             height: getPropertionateScreenWidth(10),
           ),
           logOut(
-            press: () {},
+            press: () {
+              AuthService().logout();
+              Navigator.pushNamed(context, Login.routeName);
+            },
           ),
         ],
       ),
